@@ -15,7 +15,7 @@
 ////    val message = "The water temperature is ${ if (temperature > 50) "too warm" else "OK"}."
 ////    println(message)
 ////}
- import java.util.*
+// import java.util.*
 //fun feedTheFish(){
 //    val day = randomDay()
 //    val food = "pellets"
@@ -26,23 +26,23 @@
 //    feedTheFish()
 //}
 
-fun randomDay(): String{
-    val week = arrayOf("Monday", " Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
-    return week[Random().nextInt(week.size)]
-}
+//fun randomDay(): String{
+//    val week = arrayOf("Monday", " Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+//    return week[Random().nextInt(week.size)]
+//}
+////
+////
+//fun fishFood (day : String) : String {
+//    return when (day){
+//        "Monday" -> "flakes"
+//        "Wednesday" -> "redworms"
+//        "Thursday" -> "granules"
+//        "Friday" -> "mosquitoes"
+//        "Sunday" -> "plankton"
+//        else -> "nothing"
+//    }
 //
-//
-fun fishFood (day : String) : String {
-    return when (day){
-        "Monday" -> "flakes"
-        "Wednesday" -> "redworms"
-        "Thursday" -> "granules"
-        "Friday" -> "mosquitoes"
-        "Sunday" -> "plankton"
-        else -> "nothing"
-    }
-
-}
+//}
 //
 //fun feedTheFish() {
 //    val day = randomDay()
@@ -66,17 +66,17 @@ fun fishFood (day : String) : String {
 //    swim(speed = "turtle-like")
 //}
 
-fun isTooHot(temperature: Int) = temperature > 30
-fun isDirty(dirty: Int) = dirty > 30
-fun isSunday(day: String) = day == "Sunday"
-fun shouldChangeWater (day: String, temperature: Int = 22, dirty: Int = 20): Boolean{
-    return when {
-        isTooHot(temperature) -> true
-        isDirty(dirty) -> true
-        isSunday(day) -> true
-        else -> false
-    }
-}
+//fun isTooHot(temperature: Int) = temperature > 30
+//fun isDirty(dirty: Int) = dirty > 30
+//fun isSunday(day: String) = day == "Sunday"
+//fun shouldChangeWater (day: String, temperature: Int = 22, dirty: Int = 20): Boolean{
+//    return when {
+//        isTooHot(temperature) -> true
+//        isDirty(dirty) -> true
+//        isSunday(day) -> true
+//        else -> false
+//    }
+//}
 
 //fun feedTheFish(){
 //    val day = randomDay()
@@ -88,4 +88,40 @@ fun shouldChangeWater (day: String, temperature: Int = 22, dirty: Int = 20): Boo
 //fun main(){
 //    feedTheFish()
 //}
+fun main(){
+    val decoration = listOf("rock", "pagoda", "plastic plant", "alligator", "flowerpont")
+
+    val eager = decoration.filter { it [0] == 'p' }
+    println("eager: $eager")
+
+    val filtered = decoration.asSequence().filter { it [0] == 'p' }
+    println("filtered: $filtered")
+
+    val newlist = filtered.toList()
+    println("new list: $newlist")
+
+    val lazyMap = decoration.asSequence().map {
+        println("access: $it")
+        it
+    }
+    println("lazy: $lazyMap")
+    println("-----")
+    println("first: ${lazyMap.first()}")
+    println("-----")
+    println("all: ${lazyMap.toList()}")
+
+    val lazyMap2 = decoration.asSequence().filter { it[0] == 'p' }.map {
+        println("access: $it")
+        it
+    }
+    println("-----")
+    println("filtered: ${lazyMap2.toList()}")
+
+    val mysport = listOf("basketball", "fishing", "running")
+    val myplayers = listOf("Lebron James", "Ernest Hemingway", "Usain Bolt")
+    val mycities = listOf("Los Angeles", "Chicago", "Jamaica")
+    val mylist = listOf(mysport, myplayers, mycities)
+    println("-----")
+    println("Flat: ${mylist.flatten()}")
+}
 
