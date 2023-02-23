@@ -88,40 +88,58 @@
 //fun main(){
 //    feedTheFish()
 //}
+//fun main(){
+//    val decoration = listOf("rock", "pagoda", "plastic plant", "alligator", "flowerpont")
+//
+//    val eager = decoration.filter { it [0] == 'p' }
+//    println("eager: $eager")
+//
+//    val filtered = decoration.asSequence().filter { it [0] == 'p' }
+//    println("filtered: $filtered")
+//
+//    val newlist = filtered.toList()
+//    println("new list: $newlist")
+//
+//    val lazyMap = decoration.asSequence().map {
+//        println("access: $it")
+//        it
+//    }
+//    println("lazy: $lazyMap")
+//    println("-----")
+//    println("first: ${lazyMap.first()}")
+//    println("-----")
+//    println("all: ${lazyMap.toList()}")
+//
+//    val lazyMap2 = decoration.asSequence().filter { it[0] == 'p' }.map {
+//        println("access: $it")
+//        it
+//    }
+//    println("-----")
+//    println("filtered: ${lazyMap2.toList()}")
+//
+//    val mysport = listOf("basketball", "fishing", "running")
+//    val myplayers = listOf("Lebron James", "Ernest Hemingway", "Usain Bolt")
+//    val mycities = listOf("Los Angeles", "Chicago", "Jamaica")
+//    val mylist = listOf(mysport, myplayers, mycities)
+//    println("-----")
+//    println("Flat: ${mylist.flatten()}")
+//}
+
 fun main(){
-    val decoration = listOf("rock", "pagoda", "plastic plant", "alligator", "flowerpont")
+//    var dirtylevel = 20
+//    val waterFilter = { dirty : Int -> dirty / 2}
+//    println(waterFilter(dirtylevel))
 
-    val eager = decoration.filter { it [0] == 'p' }
-    println("eager: $eager")
-
-    val filtered = decoration.asSequence().filter { it [0] == 'p' }
-    println("filtered: $filtered")
-
-    val newlist = filtered.toList()
-    println("new list: $newlist")
-
-    val lazyMap = decoration.asSequence().map {
-        println("access: $it")
-        it
+    fun updateDirty(dirty: Int, operation:(Int) -> Int): Int{
+        return operation(dirty)
     }
-    println("lazy: $lazyMap")
-    println("-----")
-    println("first: ${lazyMap.first()}")
-    println("-----")
-    println("all: ${lazyMap.toList()}")
+//    val waterFilter: (Int) -> Int = { dirty -> dirty / 2 }
+//    println(updateDirty(30, waterFilter))
 
-    val lazyMap2 = decoration.asSequence().filter { it[0] == 'p' }.map {
-        println("access: $it")
-        it
-    }
-    println("-----")
-    println("filtered: ${lazyMap2.toList()}")
+//    fun increaseDirty( start: Int) = start + 1
+//    println(updateDirty(15, ::increaseDirty))
 
-    val mysport = listOf("basketball", "fishing", "running")
-    val myplayers = listOf("Lebron James", "Ernest Hemingway", "Usain Bolt")
-    val mycities = listOf("Los Angeles", "Chicago", "Jamaica")
-    val mylist = listOf(mysport, myplayers, mycities)
-    println("-----")
-    println("Flat: ${mylist.flatten()}")
+    var dirtylevel = 19
+    dirtylevel = updateDirty(dirtylevel) { dirtylevel -> dirtylevel + 23}
+    println(dirtylevel)
 }
-
